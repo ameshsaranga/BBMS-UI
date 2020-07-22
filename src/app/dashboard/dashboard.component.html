@@ -1,0 +1,27 @@
+<!-- widget container -->
+<div class="dashbord-widget-container">
+  <!-- widget cards -->
+  <div class="widget-card-wrapper">
+    <a class="widget-card widget-card--donor" [routerLink]="['/donors']">
+      <h3 class="widget-card__title">Dorners</h3>
+    </a>
+  </div>
+  <div class="widget-card-wrapper">
+    <a class="widget-card widget-card--donation" [routerLink]="['/donations']">
+      <h3 class="widget-card__title">Donations</h3>
+    </a>
+  </div>
+  <div class="widget-card-wrapper">
+    <a class="widget-card widget-card--inventory" [routerLink]="['/inventory']">
+      <h3 class="widget-card__title">Inventory</h3>
+    </a>
+  </div>
+</div>
+
+
+<!-- chart container -->
+<div class="dashbord-chart-container">
+    <div class="chart-card chart-card--donors"></div>
+    <div class="chart-card chart-card--donations"></div>
+    <div class="chart-card chart-card--inventory"></div>
+</div>

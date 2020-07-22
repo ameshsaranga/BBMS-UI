@@ -1,0 +1,26 @@
+@import "../../styles/abstracts/extends";
+
+.inventory-statuses-wrapper {
+}
+.inventory-statuses-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(100px,1fr));
+  grid-gap: 15px;
+  margin-bottom: 15px;
+}
+
+.inventory-status {
+ @extend %card;
+ min-height: 100px;
+ 
+ &__value{
+   font-size: 30px;
+  }
+  &__title{
+    font-size: 16px;
+  }
+}
+
+.inventory-details-wrapper{
+  @extend %card;
+}

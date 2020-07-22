@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+* {
+    font-family: 'roboto', sans-serif;
+    font-size: 14px;
+    color: #3b444f;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Flaticon Icon Paths */
+
+$flaticon_svg: "./fonts/flaticon/Flaticon.svg#Flaticon";
+$flaticon_eot: "./fonts/flaticon/Flaticon.eot";
+$flaticon_woff: "./fonts/flaticon/Flaticon.woff";
+$flaticon_ttf: "./fonts/flaticon/Flaticon.ttf";
+@import '../../fonts/flaticon';
+
+/* Material Icon Paths */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url("./fonts/iconfont/MaterialIcons-Regular.eot");
+    /* For IE6-8 */
+    src: local('./fonts/iconfont/Material Icons'), local('./fonts/iconfont/MaterialIcons-Regular'), url("./fonts/iconfont/MaterialIcons-Regular.woff2") format('woff2'), url("./fonts/iconfont/MaterialIcons-Regular.woff") format('woff'), url("./fonts/iconfont/MaterialIcons-Regular.ttf") format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}

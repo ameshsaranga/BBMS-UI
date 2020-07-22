@@ -1,0 +1,31 @@
+@import "../../styles/abstracts/extends";
+
+
+.donors-btn-wrapper{
+  margin-bottom: 10px;
+}
+.donors-statuses-wrapper {
+}
+.donors-statuses-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(100px, 1fr));
+  grid-gap: 15px;
+  margin-bottom: 15px;
+}
+
+.donors-status {
+  @extend %card;
+  min-height: 100px;
+
+  &__value {
+    font-size: 30px;
+  }
+  &__title {
+    font-size: 16px;
+  }
+}
+
+.donors-details-wrapper {
+  @extend %card;
+}
+

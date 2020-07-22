@@ -1,0 +1,18 @@
+<h2>Donations</h2>
+
+<div class="donations-statuses-wrapper">
+  <h6>Donations Statuses</h6>
+  <div class="donations-statuses-grid">
+    <div
+      class="donations-status"
+      *ngFor="let donationStatus of donationStatuses"
+    >
+      <span class="donations-status__value">{{ donationStatus.value }}</span>
+      <h6 class="donations-status__title">{{ donationStatus.title }}</h6>
+    </div>
+  </div>
+</div>
+<h6>Donations Details</h6>
+<div class="donations-details-wrapper">
+
+</div>

@@ -1,0 +1,125 @@
+// $white: #ffffff;
+// $regal-blue: #2a4054;
+// $alice-blue: #f1f5f8;
+// $pelorous: #17a3b8;
+:root {
+  /* measurements */
+  --header-height: 60px;
+  --sidebar-width: 60px;
+  --sidebar-fullwidth: 250px;
+  --footer-height: 60px;
+  --content-padding: 15px;
+  /* colors */
+  --bg-color-primary: #ffffff;
+  --bg-color-secondary: #f1f5f8;
+
+  --border-color-primary: #F7F7F7;
+
+  --font-color-primary: #354d72;
+  --font-color-secondary: #3b444f;
+  --font-color-teritary: #636d73;
+  --font-color-quaternary: #708095;
+  --font-color-quinary: #828282;
+  --font-color-senary: #9a9a9a;
+  --font-color-septenary: #2f6ed3;
+  --font-color-octonary: #95bdf2;
+  --font-color-nonary: #547ca2;
+  /* gender colors
+  *   -patient banner
+  */
+  --color-gender: 99, 109, 115;
+  .antomy-component-patient-banner {
+    &--male {
+      --color-gender: 47, 110, 211;
+    }
+    &--female {
+      --color-gender: 211, 47, 148;
+    }
+    &--other {
+      --color-gender: 123, 123, 124;
+    }
+  }
+}
+
+[data-theme="default"] {
+  --bg-color-primary: #ffffff;
+  --bg-color-secondary: #f1f5f8;
+
+  --border-color-primary: #F7F7F7;
+
+  --font-color-primary: #354d72;
+  --font-color-secondary: #3b444f;
+  --font-color-teritary: #636d73;
+  --font-color-quaternary: #708095;
+  --font-color-quinary: #828282;
+  --font-color-senary: #9a9a9a;
+  --font-color-septenary: #2f6ed3;
+  --font-color-octonary: #95bdf2;
+  --font-color-nonary: #547ca2;
+
+  --header-color: #ffffff;
+  --header-icon-color: #cac7c5;
+  --content-background-color: rgb(241, 245, 248);
+  --sidebar-background-color: linear-gradient( #64C9E2, #56ADE7);
+  --submenu-background-color: #2a4054;
+  --submenu-child-background-color: #2a4054;
+  --sidebar-items-background-color: rgba(255, 255, 255, 0.2);
+  --sidebar-items-background-color-hover: rgba(255, 255, 255, 0.2);
+  --sidebar-font-color: rgba(255, 255, 255, 0.6);
+  --sidebar-font-color-hover: rgb(255, 255, 255);
+  --sidebar-font-color-active: rgb(255, 255, 255);
+  --footer-bg-color: #ffffff;
+  --box-shadow-primary: 0 3px 10px 0 rgba(191, 191, 191, 0.15);
+  --header-border-bottom: unset;
+}
+
+[data-theme="dark"] {
+  --bg-color-primary: #232c48;
+  --font-color-primary: #ffffff;
+  --font-color-secondary: #ffffff;
+  --header-color: #232c48;
+  --header-icon-color: #cac7c5;
+  --content-background-color: #1a2039;
+  --sidebar-background-color: #232c48;
+  --sidebar-items-background-color: rgba(255, 255, 255, 0.2);
+  --sidebar-font-color: rgb(255, 255, 255);
+  --sidebar-font-color-hover: rgb(255, 255, 255);
+  --footer-bg-color: #232c48;
+  --box-shadow-primary: none;
+  --header-border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+
+  .antomy-component-patient-banner{
+    --bg-color-primary: #1E3A70;
+    // --border-color-primary:#E3E3E3;
+  }
+}
+
+/* anatomy-component */
+
+/* mesurements */
+$anatomy-component: (
+  sidebar-min-width: 265px,
+  sidebar-max-width: 400px,
+  patient-banner-width: 685px,
+  patient-banner-height: 76px,
+
+  font-size-xsm: 10px,
+  font-size-sm: 12px,
+  font-size-md: 14px,
+  font-size-lg: 16px,
+  font-size-xlg: 18px,
+  font-size-xxlg: 24px,
+  
+  spacing-xsm: 5px,
+  spacing-sm: 10px,
+  spacing-md: 15px,
+  spacing-lg: 20px,
+  spacing-xlg: 25px,
+
+  border-radius-xsm:4px,
+  border-radius-sm:6px,
+  border-radius-md:8px,
+);
+
+  
+

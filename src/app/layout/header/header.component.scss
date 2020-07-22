@@ -1,0 +1,99 @@
+// navbar logo here
+.navbar-logo {
+    padding: 0 15px;
+    cursor: pointer;
+    img {
+        max-width: 130px;
+    }
+}
+
+// navbar menu here
+.navbar-menu {
+    display: flex;
+    justify-content: center;
+    margin-left: -14px;
+    min-width: var(--sidebar-width);
+    border: none;
+    background-color: transparent;
+    &:focus {
+        outline: none;
+    }
+    i {
+        font-size: 28px;
+        color: var(--header-icon-color);
+    }
+}
+
+.nav-item {
+    margin: auto 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 47px;
+    max-height: 47px;
+    position: relative;
+    .nav-link {
+        display: flex;
+        padding-right: 0;
+        padding-left: 0;
+        cursor: pointer;
+        &--fullscreen,
+        &--category,
+        &--notification,
+        &--user-profile {
+            i {
+                font-size: 24px;
+                color: var(--header-icon-color);
+            }
+        }
+        &--notification {
+            position: relative;
+            .notification-badge {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                font-size: 9px;
+                transform: translate(-10px, 3px);
+                background: #fa3a3a;
+                border: 1px solid var(--header-color);
+                color: #fff;
+                min-width: 22px;
+                padding: 0px 5px;
+                height: 15px;
+                border-radius: 10px;
+                text-align: center;
+                max-width: 33px;
+                display: block;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+        .user-profile {
+            &__avatar {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                >img {
+                    display: block;
+                    width: 100%;
+                }
+            }
+            &__name-and-role {
+                margin-left: 5px;
+                &__user-name {
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+                &__user-role {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

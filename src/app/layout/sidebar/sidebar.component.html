@@ -1,0 +1,12 @@
+<nav>
+    <ul class="sidebar sidebar--main">
+        <!-- sidebar items -->
+        <li class="sidebar__item" *ngFor="let sidebarItem of sidebarItems">
+            <a class="sidebar__link" [routerLink]="sidebarItem.route" routerLinkActive="active-link">
+                <span class="sidebar__link-item sidebar__link-item--icon"><i class="material-icons">portrait</i></span>
+                <span class="sidebar__link-item sidebar__link-item--title">{{sidebarItem.title}}</span>
+                <!-- <span class="sidebar__link-item sidebar__link-item--arrow"><i class="fi flaticon-angle-arrow-down"></i></span> -->
+            </a>
+        </li>
+    </ul>
+</nav>

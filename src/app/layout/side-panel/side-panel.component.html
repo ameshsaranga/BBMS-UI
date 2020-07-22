@@ -1,0 +1,13 @@
+<div [ngSwitch]="switch">
+  <div *ngSwitchCase="'notification'">
+    <app-notification-panel></app-notification-panel>
+  </div>
+
+  <div *ngSwitchCase="'userProfile'">
+    <app-user-profile-panel></app-user-profile-panel>
+  </div>
+
+  <div *ngSwitchCase="'moduleSwitch'">
+    <app-module-switch-panel></app-module-switch-panel>
+  </div>
+</div>

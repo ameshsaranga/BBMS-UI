@@ -1,0 +1,33 @@
+* {
+    color: var(--font-color-secondary);
+}
+
+.module {
+    &__container {
+        margin: -20px;
+        padding: 0;
+        list-style: none;
+        backface-visibility: hidden;
+    }
+    &__item {
+        width: calc(100% / 3 - 8px);
+        height: 100px;
+        margin: 4px;
+        float: left;
+        border-radius: 4px;
+        cursor: pointer;
+        animation: animateIn .3s cubic-bezier(.43, .38, .29, 1.35);
+        animation-fill-mode: backwards;
+        transition: all .3s;
+        border-radius: 6px;
+        @for $i from 1 through 17 {
+            &:nth-child(#{$i}) {
+                animation-delay: 40ms * $i;
+            }
+        }
+        &:hover {
+            background-color: rgba(202, 199, 197, 0.25);
+            border: 1px solid rgba(202, 199, 197, 0.3);
+        }
+    }
+}

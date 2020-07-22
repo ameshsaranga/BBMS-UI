@@ -1,0 +1,152 @@
+// sidebar styles here...
+.sidebar {
+    list-style: none;
+    display: block;
+    padding: 0;
+    margin-bottom: 0;
+    //submenu styles here...
+    &--submenu {
+        position: absolute;
+        top: -5px;
+        margin: 0;
+        left: 100%;
+        transition: transform.2s ease;
+        transform-origin: top left;
+        width: var(--sidebar-fullwidth);
+        transform: scale(0);
+        background-color: var(--sidebar-background-color);
+        .sidebar__item:hover .sidebar__link {
+            transition: margin .2s ease, background-color .2s ease, border-radius .2s ease;
+            &~.sidebar--submenu-child {
+                transform: scale(1);
+            }
+        }
+    }
+    //submenu child styles here...
+    &--submenu-child {
+        position: absolute;
+        top: -5px;
+        margin: 0;
+        left: 100%;
+        transition: transform.2s ease;
+        transform-origin: top left;
+        width: var(--sidebar-fullwidth);
+        transform: scale(0);
+        background-color: var(--sidebar-background-color);;
+    }
+    //sidebar items style here....
+    &__item {
+        position: relative;
+        margin: 5px 0;
+        display: block;
+        align-items: center;
+        cursor: pointer;
+        &:hover .sidebar__link {
+            transition: margin .2s ease, background-color .2s ease, border-radius .2s ease;
+            &~.sidebar--submenu {
+                transform: scale(1);
+            }
+        }
+    }
+    //sidebar link styles here...
+    &__link {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        height: 50px;
+        text-decoration: none;
+        transition: all .3s;
+        transition-timing-function: cubic-bezier(.17, .67, .67, .52);
+        &:hover {
+            background-color: var(--sidebar-items-background-color-hover);
+            &__link-item {
+                color: var(--sidebar-font-color);
+                transition: all .2s ease-in-out;
+                i {
+                    color: var(--sidebar-font-color);
+                    transition: all .2s ease-in-out;
+                }
+            }
+        }
+        &::before{
+            // content: "";
+            position: absolute;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background-color: #fff;
+            transform: scaleY(0);
+            transition: transform .3s;
+        }
+        
+        //sidebar item's active status style here...
+        &.active-link {
+            // background-color: var(--sidebar-items-background-color);
+            transition: all .2s ease-in-out !important;
+            .sidebar__link-item,
+            .submenu__link-item,
+            .submenu-child__link-item {
+                color: var(--sidebar-font-color-active);
+                transition: all .2s ease-in-out;
+                i,.fi::before {
+                    color: var(--sidebar-font-color-active);
+                    transition: all .2s ease-in-out;
+                }
+            }
+            &:hover {
+                .sidebar__link-item,
+                .submenu__link-item,
+                .submenu-child__link-item {
+                    color: var(--sidebar-font-color-hover);
+                    i,.fi::before {
+                        color: var(--sidebar-font-color-hover);
+                    }
+                }
+            }
+
+            &::before{
+                transform: scaleY(1);
+            }
+        }
+    }
+    //sidebar icon,title and arrow style here...
+    &__link-item {
+        position: relative;
+        color: var(--sidebar-font-color);
+        &--icon {
+            min-width: 60px;
+            display: flex;
+            justify-content: center;
+            color: var(--sidebar-font-color);
+            i {
+                color: inherit;
+                font-size: 24px;
+                transition: all .5s ease-in-out;
+            }
+        }
+        &--title {
+            font-size: 14px;
+            font-weight: 400;
+            white-space: nowrap;
+            min-width: 158px;
+            max-width: 156px;
+            display: inline-block;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+            margin-left: 5px;
+            color: var(--sidebar-font-color);
+        }
+        &--arrow {
+            margin-right: 5px;
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            color: var(--sidebar-font-color);
+            .fi:before {
+                transform: rotate(-90deg);
+                color: var(--sidebar-font-color);
+                transition: color .5s ease-in-out, transform .2s ease-in-out;
+            }
+        }
+    }
+}

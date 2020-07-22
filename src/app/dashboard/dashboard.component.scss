@@ -1,0 +1,79 @@
+@import "../../styles/abstracts/extends";
+.dashbord-widget-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+}
+
+.widget-card {
+  display: flex;
+  min-height: 150px;
+
+
+  background-position: top;
+  text-decoration: none;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+  @extend %card;
+
+  &--donor {
+    background-image: url("../../assets/image/donors.jpg");
+  }
+  &--donation {
+    background-image: url("../../assets/image/donations.jpg");
+  }
+  &--inventory {
+    background-image: url("../../assets/image/inventory.jpg");
+  }
+
+  &:active,
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transform: translateY(-3px);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  h3 {
+    align-self: flex-end;
+    margin-bottom: 0;
+    color: #ffffff;
+    z-index: 1;
+  }
+}
+
+.dashbord-chart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+  margin-top: 15px;
+}
+
+.chart-card {
+  background-color: #ffffff;
+  padding: 15px;
+  min-height: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+
+  &--donor {
+  }
+  &--donation {
+  }
+  &--inventory {
+      grid-column-start: 1;
+      grid-column-end: 3;
+  }
+}

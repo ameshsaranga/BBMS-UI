@@ -1,0 +1,31 @@
+<!-- header Component Here -->
+<header class="header">
+  <app-header [PARENT]="this" (buttonClicked)="onButtonClicked($event)"></app-header>
+</header>
+
+<!-- main contain Content here -->
+<main class="content-body" [ngClass]="sideMenuToggle? 'hiddenMenu': ''" id="content-body">
+
+  <!-- sidebar Component Here-->
+  <nav class="sidebar-wrapper" id="sideBar">
+    <app-sidebar></app-sidebar>
+  </nav>
+
+  <!-- Module Components Here -->
+  <section class="content-wrapper">
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+
+  <!-- Footer Component Here -->
+  <footer class="footer-wrapper">
+    <app-footer></app-footer>
+  </footer>
+
+  <!-- Side panel Component Here -->
+  <aside id="sidePanel" class="aside-default">
+    <app-side-panel [switch]="buttonName"></app-side-panel>
+  </aside>
+
+</main>
