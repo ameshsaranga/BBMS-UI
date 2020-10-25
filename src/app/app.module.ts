@@ -10,11 +10,21 @@ import { FormsModule } from '@angular/forms';
 import { DonorService } from './shared/donor.service';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DonationsComponent } from './donations/donations.component';
+import { DonorsComponent } from './donors/donors.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
+    DonationsComponent,
+    DonorsComponent,
+    InventoryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [DonorService],
   bootstrap: [AppComponent]

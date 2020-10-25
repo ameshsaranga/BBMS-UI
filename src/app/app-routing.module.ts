@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DonorsComponent } from './donors/donors.component';
+import { DonationsComponent } from './donations/donations.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -15,7 +20,7 @@ const routes: Routes = [
     children:[
       {
         path:"login",
-        loadChildren:"./login/login.module#LoginModule"
+        component:LoginComponent
       }
     ]
   },
@@ -25,19 +30,19 @@ const routes: Routes = [
     children: [
       {
         path: "dashboard",
-        loadChildren: "./dashboard/dashboard.module#DashboardModule"
+        component: DashboardComponent,
       },
       {
         path: "donors",
-        loadChildren: "./donors/donors.module#DonorsModule"
+        component: DonorsComponent
       },
       {
         path: "donations",
-        loadChildren: "./donations/donations.module#DonationsModule"
+        component: DonationsComponent
       },
       {
         path: "inventory",
-        loadChildren: "./inventory/inventory.module#InventoryModule"
+        component: InventoryComponent
       }
     ]
   },
