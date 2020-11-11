@@ -1,5 +1,7 @@
 <h2>Donations</h2>
-
+<div class="donations-btn-wrapper">
+  <button class="btn btn-success btn-md">Add Donations</button>
+</div>
 <div class="donations-statuses-wrapper">
   <h6>Donations Statuses</h6>
   <div class="donations-statuses-grid">
@@ -14,5 +16,33 @@
 </div>
 <h6>Donations Details</h6>
 <div class="donations-details-wrapper">
-
+  <table class="table-scroll">
+    <thead>
+      <tr>
+        <th>Donation ID</th>
+        <th>Donor ID</th>
+        <th>Gender</th>
+        <th>Nationality</th>
+        <th>Blood Group</th>
+        <th>Status</th>
+        <th>Last Donation</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let donation of donationsList">
+        <td title="{{donation.DonationID}}">{{donation.DonorID}}</td>
+        <td title="{{donation.FirstName}} {{donation.LastName}}">{{donation.FirstName}} {{donation.LastName}}</td>
+        <td title="{{donation.Gender}}">{{donation.Gender}}</td>
+        <td title="{{donation.Nationality}}">{{donation.Nationality}}</td>
+        <td title="{{donation.BloodGroup}}">{{donation.BloodGroup}}</td>
+        <td title="{{donation.Status}}">{{donation.Status}}</td>
+        <td title="{{donation.LastDonation | date :'dd-MMM-yyyy'}}">{{donation.LastDonation | date :'dd-MMM-yyyy'}}</td>
+        <td>
+          <button class="btn btn-sm btn-outline-danger" title="Delete" (click)="onDelete(donor.DonorID)">X</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="populateForm(donor); openModal(template)" title="Edit">E</button>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
 </div>

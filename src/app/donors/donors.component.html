@@ -2,6 +2,7 @@
 
 <div class="donors-btn-wrapper">
   <button class="btn btn-success btn-md" (click)="openModal(template)">Add Donor</button>
+  <button class="btn btn-success btn-md">Add Patient as Donor</button>
 </div>
 
 <div class="donors-statuses-wrapper">
@@ -52,7 +53,7 @@
 <ng-template #template>
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
+    <h4 class="modal-title pull-left">Add Donors</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -62,7 +63,7 @@
       <input type="hidden" name="DonorID" id="DonorID" #DonorID="ngModel" class="form-control" [(ngModel)] = "service.formData.DonorID">
       <div class="col-md-3">
         <div class="form-group">
-          <label for="FirstName">First Name</label>
+          <label class="required" for="FirstName">First Name</label>
           <input name="FirstName" id="FirstName" #FirstName="ngModel" class="form-control" [(ngModel)] = "service.formData.FirstName" required>
           <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">Full Name is required.</div>
         </div>
@@ -81,7 +82,7 @@
       </div>
       <div class="col-md-3">
         <div class="form-group">
-          <label for="LastName">Last Name</label>
+          <label class="required" for="LastName">Last Name</label>
           <input name="LastName" id="LastName" #LastName="ngModel" class="form-control" [(ngModel)] = "service.formData.LastName">
         </div>
       </div>
@@ -103,7 +104,7 @@
       </div>
       <div class="col-md-3">
         <div class="form-group">
-          <label for="BloodGroup">Blood Group</label>
+          <label class="required" for="BloodGroup">Blood Group</label>
           <select name="BloodGroup" id="BloodGroup" #BloodGroup="ngModel" class="form-control" [(ngModel)] = "service.formData.BloodGroup">
             <option>A+</option>
             <option>A-</option>
@@ -138,8 +139,8 @@
     </div>
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-success btn-md" [disabled]="form.invalid">Submit</button>
-      <button type="reset" class="btn btn-info btn-md">Clear All</button>
+      <button type="submit" class="btn btn-success" [disabled]="form.invalid">Submit</button>
+      <button type="reset" class="btn btn-blank">Clear All</button>
     </div>
   </form>
 </ng-template>

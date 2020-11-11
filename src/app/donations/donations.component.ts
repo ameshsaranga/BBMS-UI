@@ -9,9 +9,6 @@ export class DonationsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
   donationStatuses = [
     {
       title:'Consent Done',
@@ -52,6 +49,19 @@ export class DonationsComponent implements OnInit {
     {
       title:'Cancelled',
       value:'20'
-    },
-  ]
+    }
+  ];
+
+  // donationsList = [
+  //  { DonationID,
+  //   FirstName,
+  //   Gender,
+  //   Nationality,
+  //   BloodGroup,
+  //   Status,
+  //   LastDonation}
+  // ]
+
+  ngOnInit() {
+  }
 }

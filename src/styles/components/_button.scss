@@ -1,0 +1,25 @@
+.btn{
+    font-size: 16px;
+    padding: 7px 26px;
+}
+
+.btn-success{
+    background:#116754;
+    border: 1px solid #116754;
+    
+    &:focus,&:active,&:hover,&:disabled{
+        background:#00aa88!important;
+        border: 1px solid #00aa88!important;
+    }
+}
+
+.btn-blank{
+    background:transparent;
+    border: 1px solid #051e3e;
+    color: #051e3e;
+
+    &:focus,&:active,&:hover,&:disabled{
+        background:#051e3e!important;
+        color: #fff;
+    }
+}

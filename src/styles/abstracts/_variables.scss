@@ -24,21 +24,6 @@
   --font-color-septenary: #2f6ed3;
   --font-color-octonary: #95bdf2;
   --font-color-nonary: #547ca2;
-  /* gender colors
-  *   -patient banner
-  */
-  --color-gender: 99, 109, 115;
-  .antomy-component-patient-banner {
-    &--male {
-      --color-gender: 47, 110, 211;
-    }
-    &--female {
-      --color-gender: 211, 47, 148;
-    }
-    &--other {
-      --color-gender: 123, 123, 124;
-    }
-  }
 }
 
 [data-theme="default"] {
@@ -60,7 +45,7 @@
   --header-color: #ffffff;
   --header-icon-color: #cac7c5;
   --content-background-color: rgb(241, 245, 248);
-  --sidebar-background-color: linear-gradient( #64C9E2, #56ADE7);
+  --sidebar-background-color: #116754;
   --submenu-background-color: #2a4054;
   --submenu-child-background-color: #2a4054;
   --sidebar-items-background-color: rgba(255, 255, 255, 0.2);
@@ -87,39 +72,7 @@
   --footer-bg-color: #232c48;
   --box-shadow-primary: none;
   --header-border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-
-  .antomy-component-patient-banner{
-    --bg-color-primary: #1E3A70;
-    // --border-color-primary:#E3E3E3;
-  }
 }
-
-/* anatomy-component */
-
-/* mesurements */
-$anatomy-component: (
-  sidebar-min-width: 265px,
-  sidebar-max-width: 400px,
-  patient-banner-width: 685px,
-  patient-banner-height: 76px,
-
-  font-size-xsm: 10px,
-  font-size-sm: 12px,
-  font-size-md: 14px,
-  font-size-lg: 16px,
-  font-size-xlg: 18px,
-  font-size-xxlg: 24px,
-  
-  spacing-xsm: 5px,
-  spacing-sm: 10px,
-  spacing-md: 15px,
-  spacing-lg: 20px,
-  spacing-xlg: 25px,
-
-  border-radius-xsm:4px,
-  border-radius-sm:6px,
-  border-radius-md:8px,
-);
 
   
 

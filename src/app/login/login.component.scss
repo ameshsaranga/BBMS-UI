@@ -9,8 +9,9 @@
   &__container {
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
-    width: 70%;
-    background-color: rgb(255, 255, 255);
+    max-width: 950px;
+    width: 100%;
+    background-color: white;
     padding: 40px 0 0;
     
     &-top{
@@ -23,7 +24,7 @@
       align-items: center;
       color: #116754;
       font-size: 12px;
-      padding: 15px;
+      padding: 12px;
     }
   }
   &__img-container {
@@ -80,19 +81,6 @@
   }
 }
 
-
 .btn{
-    width: 100%;
-    font-size: 16px;
-    padding: 7px;
-}
-
-.btn-success{
-    background:#00aa88;
-    border: 1px solid #00aa88;
-    
-    &:focus,&:active,&:hover{
-        background:#116754!important;
-        border: 1px solid #116754!important;
-    }
+  width: 100%;
 }

@@ -2,7 +2,14 @@
 
 
 .donors-btn-wrapper{
+  display: flex;
   margin-bottom: 10px;
+
+  .btn{
+    &:not(:last-child){
+      margin-right: 10px;
+    }
+  }
 }
 .donors-statuses-wrapper {
 }

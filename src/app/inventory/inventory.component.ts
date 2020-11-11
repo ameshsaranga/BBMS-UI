@@ -32,6 +32,10 @@ export class InventoryComponent implements OnInit {
     {
       title:'Expired',
       value:'20'
+    },
+    {
+      title:'Discarded',
+      value:'20'
     }
   ]
 

@@ -16,22 +16,27 @@ export class SidebarComponent implements OnInit {
     {
       title:'Dashboard',
       route:'/dashboard',
-      icon:''
+      icon:'flaticon-dashboard'
     },
     {
       title:'Donors',
       route:'/donors',
-      icon:''
+      icon:'flaticon-donor-1'
     },
     {
       title:'Donations',
       route:'/donations',
-      icon:''
+      icon:'flaticon-blood-donation-2'
     },
     {
       title:'Inventory',
       route:'/inventory',
-      icon:''
+      icon:'flaticon-blood-donation-6'
+    },
+    {
+      title:'Setup & Configuration',
+      route:'/inventory',
+      icon:'flaticon-file'
     },
   ]
 
