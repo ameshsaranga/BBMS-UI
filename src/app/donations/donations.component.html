@@ -1,14 +1,11 @@
 <h2>Donations</h2>
 <div class="donations-btn-wrapper">
-  <button class="btn btn-success btn-md">Add Donations</button>
+  <button class="btn btn-success btn-md" (click)="openModal(templateDonation)">Add Donations</button>
 </div>
 <div class="donations-statuses-wrapper">
   <h6>Donations Statuses</h6>
   <div class="donations-statuses-grid">
-    <div
-      class="donations-status"
-      *ngFor="let donationStatus of donationStatuses"
-    >
+    <div class="donations-status" *ngFor="let donationStatus of donationStatuses">
       <span class="donations-status__value">{{ donationStatus.value }}</span>
       <h6 class="donations-status__title">{{ donationStatus.title }}</h6>
     </div>
@@ -46,3 +43,84 @@
     </tbody>
   </table>
 </div>
+
+
+<!-- donors add modal -->
+<ng-template #templateDonation>
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add Donors</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="Gender">Gender</label>
+            <select name="Gender" id="Gender" #Gender="ngModel" class="form-control"
+              [(ngModel)]="donationService.formData.Gender">
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="Nationality">Nationality</label>
+            <input name="Nationality" id="Nationality" #Nationality="ngModel" class="form-control"
+              [(ngModel)]="donationService.formData.Nationality">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="required" for="BloodGroup">Blood Group</label>
+            <select name="BloodGroup" id="BloodGroup" #BloodGroup="ngModel" class="form-control"
+              [(ngModel)]="donationService.formData.BloodGroup">
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>O+</option>
+              <option>O-</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="Status">Status</label>
+            <select name="Status" id="Status" #Status="ngModel" class="form-control"
+              [(ngModel)]="donationService.formData.Status">
+              <option>Consent Done</option>
+              <option>Initiated</option>
+              <option>Medical exam done</option>
+              <option>Complete</option>
+              <option>Incomplete</option>
+              <option>Complete with reaction </option>
+              <option>Incomplete with reaction </option>
+              <option>Screening Done </option>
+              <option>Label Printed </option>
+              <option>Cancelled </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="LastDonation">Last Donation</label>
+            <input type="date" name="LastDonation" id="LastDonation" #LastDonation="ngModel" class="form-control"
+              [(ngModel)]="donationService.formData.LastDonation">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-success" [disabled]="form.invalid">Submit</button>
+      <button type="reset" class="btn btn-blank">Clear All</button>
+    </div>
+  </form>
+</ng-template>

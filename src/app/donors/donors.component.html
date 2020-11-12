@@ -7,12 +7,12 @@
 
 <div class="donors-statuses-wrapper">
   <h6>Donors Statuses</h6>
-<div class="donors-statuses-grid">
-  <div class="donors-status" *ngFor="let donorStatus of donorStatuses">
-    <span class="donors-status__value">{{donorStatus.value}}</span>
-    <h6 class="donors-status__title">{{donorStatus.title}}</h6>
+  <div class="donors-statuses-grid">
+    <div class="donors-status" *ngFor="let donorStatus of donorStatuses">
+      <span class="donors-status__value">{{donorStatus?.value}}</span>
+      <h6 class="donors-status__title">{{donorStatus?.title}}</h6>
+    </div>
   </div>
-</div>  
 </div>
 <h6>Donors Details</h6>
 <div class="donors-details-wrapper">
@@ -30,17 +30,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let donor of service.donorList">
-        <td title="{{donor.DonorID}}">{{donor.DonorID}}</td>
-        <td title="{{donor.FirstName}} {{donor.LastName}}">{{donor.FirstName}} {{donor.LastName}}</td>
-        <td title="{{donor.Gender}}">{{donor.Gender}}</td>
-        <td title="{{donor.Nationality}}">{{donor.Nationality}}</td>
-        <td title="{{donor.BloodGroup}}">{{donor.BloodGroup}}</td>
-        <td title="{{donor.Status}}">{{donor.Status}}</td>
-        <td title="{{donor.LastDonation | date :'dd-MMM-yyyy'}}">{{donor.LastDonation | date :'dd-MMM-yyyy'}}</td>
+      <tr *ngFor="let donor of dornerList">
+        <td title="{{donor?.DonorID}}">{{donor?.DonorID}}</td>
+        <td title="{{donor?.FirstName}} {{donor?.LastName}}">{{donor?.FirstName}} {{donor?.LastName}}</td>
+        <td title="{{donor?.Gender}}">{{donor?.Gender}}</td>
+        <td title="{{donor?.Nationality}}">{{donor?.Nationality}}</td>
+        <td title="{{donor?.BloodGroup}}">{{donor?.BloodGroup}}</td>
+        <td title="{{donor?.Status}}">{{donor?.Status}}</td>
+        <td title="{{donor?.LastDonation | date :'dd-MMM-yyyy'}}">{{donor?.LastDonation | date :'dd-MMM-yyyy'}}</td>
         <td>
           <button class="btn btn-sm btn-outline-danger" title="Delete" (click)="onDelete(donor.DonorID)">X</button>
-          <button class="btn btn-sm btn-outline-danger" (click)="populateForm(donor); openModal(template)" title="Edit">E</button>
+          <button class="btn btn-sm btn-outline-danger" (click)="populateForm(donor); openModal(template)"
+            title="Edit">E</button>
         </td>
       </tr>
     </tbody>
@@ -49,94 +50,103 @@
 
 
 
-<!-- donors add modal --> 
+<!-- donors add modal -->
 <ng-template #template>
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Add Donors</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="row">
-      <input type="hidden" name="DonorID" id="DonorID" #DonorID="ngModel" class="form-control" [(ngModel)] = "service.formData.DonorID">
-      <div class="col-md-3">
-        <div class="form-group">
-          <label class="required" for="FirstName">First Name</label>
-          <input name="FirstName" id="FirstName" #FirstName="ngModel" class="form-control" [(ngModel)] = "service.formData.FirstName" required>
-          <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">Full Name is required.</div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="SecondName">Second Name</label>
-          <input name="SecondName" id="SecondName" #SecondName="ngModel" class="form-control" [(ngModel)] = "service.formData.SecondName">
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="thirdName">Third Name</label>
-          <input name="thirdName" id="thirdName" #thirdName="ngModel" class="form-control" [(ngModel)] = "service.formData.thirdName">
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label class="required" for="LastName">Last Name</label>
-          <input name="LastName" id="LastName" #LastName="ngModel" class="form-control" [(ngModel)] = "service.formData.LastName">
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="Gender">Gender</label>
-          <select name="Gender" id="Gender" #Gender="ngModel" class="form-control" [(ngModel)] = "service.formData.Gender">
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="Nationality">Nationality</label>
-          <input name="Nationality" id="Nationality" #Nationality="ngModel" class="form-control" [(ngModel)] = "service.formData.Nationality">
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label class="required" for="BloodGroup">Blood Group</label>
-          <select name="BloodGroup" id="BloodGroup" #BloodGroup="ngModel" class="form-control" [(ngModel)] = "service.formData.BloodGroup">
-            <option>A+</option>
-            <option>A-</option>
-            <option>B+</option>
-            <option>B-</option>
-            <option>AB+</option>
-            <option>AB-</option>
-            <option>O+</option>
-            <option>O-</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="Status">Status</label>
-          <select name="Status" id="Status" #Status="ngModel" class="form-control" [(ngModel)] = "service.formData.Status">
-            <option>Accepted</option>
-            <option>Hold</option>
-            <option>Deffered Tempory</option>
-            <option>Deffered Tempory</option>
-            <option>Deffered Permanently</option>
-            <option>Blocked</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="LastDonation">Last Donation</label>
-          <input type="date" name="LastDonation" id="LastDonation" #LastDonation="ngModel" class="form-control" [(ngModel)] = "service.formData.LastDonation">
-        </div>
-      </div>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add Donors</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
+    <div class="modal-body">
+      <div class="row">
+        <input type="hidden" name="DonorID" id="DonorID" #DonorID="ngModel" class="form-control"
+          [(ngModel)]="service.formData.DonorID">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="required" for="FirstName">First Name</label>
+            <input name="FirstName" id="FirstName" #FirstName="ngModel" class="form-control"
+              [(ngModel)]="service.formData.FirstName" required>
+            <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">Full Name is required.</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="SecondName">Second Name</label>
+            <input name="SecondName" id="SecondName" #SecondName="ngModel" class="form-control"
+              [(ngModel)]="service.formData.SecondName">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="thirdName">Third Name</label>
+            <input name="thirdName" id="thirdName" #thirdName="ngModel" class="form-control"
+              [(ngModel)]="service.formData.thirdName">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="required" for="LastName">Last Name</label>
+            <input name="LastName" id="LastName" #LastName="ngModel" class="form-control"
+              [(ngModel)]="service.formData.LastName">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="Gender">Gender</label>
+            <select name="Gender" id="Gender" #Gender="ngModel" class="form-control"
+              [(ngModel)]="service.formData.Gender">
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="Nationality">Nationality</label>
+            <input name="Nationality" id="Nationality" #Nationality="ngModel" class="form-control"
+              [(ngModel)]="service.formData.Nationality">
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label class="required" for="BloodGroup">Blood Group</label>
+            <select name="BloodGroup" id="BloodGroup" #BloodGroup="ngModel" class="form-control"
+              [(ngModel)]="service.formData.BloodGroup">
+              <option>A+</option>
+              <option>A-</option>
+              <option>B+</option>
+              <option>B-</option>
+              <option>AB+</option>
+              <option>AB-</option>
+              <option>O+</option>
+              <option>O-</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="Status">Status</label>
+            <select name="Status" id="Status" #Status="ngModel" class="form-control"
+              [(ngModel)]="service.formData.Status">
+              <option>Accepted</option>
+              <option>Hold</option>
+              <option>Deffered Tempory</option>
+              <option>Deffered Permanently</option>
+              <option>Blocked</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="LastDonation">Last Donation</label>
+            <input type="date" name="LastDonation" id="LastDonation" #LastDonation="ngModel" class="form-control"
+              [(ngModel)]="service.formData.LastDonation">
+          </div>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
       <button type="submit" class="btn btn-success" [disabled]="form.invalid">Submit</button>

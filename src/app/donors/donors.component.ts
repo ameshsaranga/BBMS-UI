@@ -10,10 +10,11 @@ import { Donor } from '../shared/donor.model';
   templateUrl: './donors.component.html',
   styleUrls: ['./donors.component.scss']
 })
-export class DonorsComponent implements OnInit { 
+export class DonorsComponent implements OnInit {
   modalRef: BsModalRef;
- 
-  constructor(private service: DonorService, private modalService: BsModalService, private toastr : ToastrService) {
+  dornerList: any[];
+
+  constructor(private service: DonorService, private modalService: BsModalService, private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -29,7 +30,7 @@ export class DonorsComponent implements OnInit {
 
   resetForm(form?: NgForm) {
     if (form != null) {
-    form.resetForm();
+      form.resetForm();
     }
     this.service.formData = {
       DonorID: null,
@@ -45,28 +46,31 @@ export class DonorsComponent implements OnInit {
     };
   }
 
-  onSubmit(form: NgForm){
-    if (form.value.DonorID ==null) {
-      this.insertRecord(form);
-    } else {
+  onSubmit(form: NgForm) {
+    if (form.value.DonorID) {
       this.updateRecord(form);
+    } else {
+      this.insertRecord(form);
     }
   }
 
-  insertRecord(form: NgForm){
-    this.service.postDonor(form.value).subscribe(res => {
-      this.toastr.success('Inserted Successfully', 'Donor Register');
-      this.resetForm(form);
-      this.service.refreshList();
-    });
+  insertRecord(form: NgForm) {
+    this.service.postDonor(form.value);
+    this.toastr.success('Inserted Successfully', 'Donor Register');
+    this.resetForm(form);
+    this.refresGrid();
   }
 
-  updateRecord(form: NgForm){
-    this.service.putDonor(form.value).subscribe(res => {
-      this.toastr.info('Updated Successfully', 'Donor Register');
-      this.resetForm(form);
-      this.service.refreshList();
-    });
+  refresGrid = () => {
+    this.dornerList = this.service.refreshList();
+    this.updateStatus();
+  }
+
+  updateRecord(form: NgForm) {
+    this.service.putDonor(form.value);
+    this.toastr.info('Updated Successfully', 'Donor Register');
+    this.resetForm(form);
+    this.refresGrid();
   }
 
   populateForm(donor: Donor) {
@@ -74,38 +78,47 @@ export class DonorsComponent implements OnInit {
   }
 
   onDelete(id: number) {
-    if (confirm('Are You sure to delete this record?')){
-    this.service.deleteDonor(id).subscribe(res => {
-      this.service.refreshList();
+    if (confirm('Are You sure to delete this record?')) {
+      this.service.deleteDonor(id);
+      this.refresGrid();
       this.toastr.warning('Deleted Successfully', 'Donor Register');
-    });
+    }
   }
+
+  updateStatus = () => {
+    for (let index = 0; index < this.service.status.length; index++) {
+      const count = this.service.getCount(this.service.status[index].status);
+      const statTitle: string = this.service.status[index].status;
+      this.donorStatuses[this.donorStatuses.findIndex(x => x.title === statTitle)].value = count;
+
+    }
+
   }
 
 
   donorStatuses = [
     {
-      title:'Accepted',
-      value:'45'
+      title: 'Accepted',
+      value: 0
     },
     {
-      title:'Hold',
-      value:'10'
+      title: 'Hold',
+      value: 0
     },
     {
-      title:'Deffered Tempory',
-      value:'5'
+      title: 'Deffered Tempory',
+      value: 0
     },
     {
-      title:'Deffered Permanently',
-      value:'2'
+      title: 'Deffered Permanently',
+      value: 0
     },
     {
-      title:'Blocked',
-      value:'20'
+      title: 'Blocked',
+      value: 0
     },
   ]
 
-  
+
 
 }
