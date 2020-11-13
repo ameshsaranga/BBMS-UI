@@ -19,7 +19,7 @@ export class DonorsComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
-    this.service.refreshList();
+    this.refresGrid();
   }
 
   openModal(template: TemplateRef<any>, form: NgForm) {

@@ -6,7 +6,7 @@ import { LayoutModule } from './layout/layout.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DonorService } from './shared/donor.service';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,6 +36,7 @@ import { LoginComponent } from './login/login.component';
     BsDatepickerModule.forRoot(),
     ToastrModule.forRoot(),
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [DonorService],
   bootstrap: [AppComponent]
